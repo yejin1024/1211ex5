@@ -13,7 +13,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     //TODO2: JMeter 실행계획(.jmx)이 있는 Git Repo 주소
-                    url: 'https://github.com/yejin1024/1211ex5'
+                    url: 'https://github.com/yejin1024/1211ex5.git'
             }
         }
 
