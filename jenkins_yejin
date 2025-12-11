@@ -29,10 +29,12 @@ pipeline {
                             returnStdout: true
                         ).trim()
                     } else {
-                        jmxFile = bat(
-                            script: 'for %%f in (*.jmx) do @echo %%f',
+                        def output = bat(
+                            script:  '@echo off & for %%f in (*.jmx) do @echo %%f',
                             returnStdout: true
                         ).trim()
+
+                        jmxFile = output.readLines().last().trim()
                     }
         
                     if (!jmxFile) {
@@ -70,12 +72,12 @@ pipeline {
 
                     // Execute JMeter with auto-detected JMX file
                     if (isWindows) {
-                        bat """
-                        ${jmeterCmd} -n ^
-                          -t "${env.JMX_FILE}" ^
-                          -l results.jtl ^
-                          -e -o reports
-                        """
+                        powershell """
+                        ${jmeterCmd} -n `
+                        -t \"${env.JMX_FILE}\" `
+                        -l results.jtl `
+                        -e -o reports
+                        """ 
                     } else {
                         sh """
                         ${jmeterCmd} -n \\
@@ -120,3 +122,12 @@ pipeline {
         }
     }
 }
+
+
+
+
+
+
+
+
+
