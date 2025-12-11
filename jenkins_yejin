@@ -3,8 +3,8 @@ pipeline {
 
     //TODO1: jmeter 설치 폴더 위치 설정
     environment {
-        JMETER_HOME_WIN = "C:\\Users\\josun\\Desktop\\앨리스트랙\\apache-jmeter-5.6.3"
-        JMETER_HOME_UNIX = "C:\\Users\\josun\\Desktop\\앨리스트랙\\apache-jmeter-5.6.3"
+        JMETER_HOME_WIN = "C:\\Users\\josun\\Desktop\\alice_track\\apache-jmeter-5.6.3"
+        JMETER_HOME_UNIX = "C:\\Users\\josun\\Desktop\\alice_track\\apache-jmeter-5.6.3"
     }
 
     stages {
